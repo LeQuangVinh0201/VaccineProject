@@ -32,7 +32,6 @@ public class ChinhSuaThongTinCaNhan extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jlbAvatar = new javax.swing.JLabel();
-        btnChangeAvatar = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         txtDateOfBirth = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
@@ -55,6 +54,9 @@ public class ChinhSuaThongTinCaNhan extends javax.swing.JPanel {
         btnCancel = new javax.swing.JButton();
         btnSave = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
+        jPanel4 = new javax.swing.JPanel();
+        btnChangeAvatar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 204));
 
@@ -86,8 +88,6 @@ public class ChinhSuaThongTinCaNhan extends javax.swing.JPanel {
         jlbAvatar.setBackground(new java.awt.Color(0, 0, 0));
         jlbAvatar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlbAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/softech/appqlsv/icons/logo128.png"))); // NOI18N
-
-        btnChangeAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/softech/appqlsv/icons/Camera-icon.png"))); // NOI18N
 
         txtDateOfBirth.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         txtDateOfBirth.addActionListener(new java.awt.event.ActionListener() {
@@ -163,6 +163,34 @@ public class ChinhSuaThongTinCaNhan extends javax.swing.JPanel {
         btnSave.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         btnSave.setText("Lưu");
 
+        btnChangeAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/softech/appqlsv/icons/Camera-icon.png"))); // NOI18N
+        btnChangeAvatar.setText("thêm hình");
+
+        jLabel1.setText("hinh upload tại đây");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(btnChangeAvatar))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(19, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnChangeAvatar))
+        );
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -170,12 +198,16 @@ public class ChinhSuaThongTinCaNhan extends javax.swing.JPanel {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jSeparator2)
-                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGap(222, 222, 222)
+                        .addComponent(jlbAvatar, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(147, 147, 147)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1011, Short.MAX_VALUE)
+                            .addComponent(jSeparator2)
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1037, Short.MAX_VALUE)
                             .addComponent(jLabel4)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -205,13 +237,7 @@ public class ChinhSuaThongTinCaNhan extends javax.swing.JPanel {
                                             .addComponent(txtPhone)))
                                     .addComponent(jScrollPane1)))
                             .addComponent(jLabel11))
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jlbAvatar, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnChangeAvatar)
-                        .addGap(369, 369, 369))))
+                        .addContainerGap())))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(390, 390, 390)
                 .addComponent(btnCancel)
@@ -222,10 +248,12 @@ public class ChinhSuaThongTinCaNhan extends javax.swing.JPanel {
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnChangeAvatar)
-                    .addComponent(jlbAvatar, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(8, 8, 8)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jlbAvatar, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -295,7 +323,7 @@ public class ChinhSuaThongTinCaNhan extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1031, Short.MAX_VALUE)
+            .addGap(0, 1057, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -304,7 +332,7 @@ public class ChinhSuaThongTinCaNhan extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 698, Short.MAX_VALUE)
+            .addGap(0, 708, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -334,6 +362,7 @@ public class ChinhSuaThongTinCaNhan extends javax.swing.JPanel {
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnChangeAvatar;
     private javax.swing.JButton btnSave;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
@@ -346,6 +375,7 @@ public class ChinhSuaThongTinCaNhan extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
