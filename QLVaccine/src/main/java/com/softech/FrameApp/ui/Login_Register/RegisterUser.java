@@ -5,6 +5,11 @@
  */
 package com.softech.FrameApp.ui.Login_Register;
 
+import com.softech.Login.userLogin;
+import com.softech.Login.userDAO;
+import java.awt.Color;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author leduc
@@ -17,6 +22,7 @@ public class RegisterUser extends javax.swing.JDialog {
     public RegisterUser(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -35,8 +41,8 @@ public class RegisterUser extends javax.swing.JDialog {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txtName = new javax.swing.JTextField();
-        txtPhone = new javax.swing.JTextField();
+        txtfullName = new javax.swing.JTextField();
+        txtPhoneNumber = new javax.swing.JTextField();
         txtPassword = new javax.swing.JPasswordField();
         txtConfirmPassword = new javax.swing.JPasswordField();
         jSeparator1 = new javax.swing.JSeparator();
@@ -46,6 +52,8 @@ public class RegisterUser extends javax.swing.JDialog {
         btnRegister = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
         btnCancel = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        txtEmail = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -89,13 +97,39 @@ public class RegisterUser extends javax.swing.JDialog {
         jLabel5.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel5.setText("Họ và tên:");
 
-        txtName.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        txtfullName.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        txtfullName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtfullNameKeyPressed(evt);
+            }
+        });
 
-        txtPhone.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        txtPhoneNumber.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        txtPhoneNumber.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtPhoneNumberKeyPressed(evt);
+            }
+        });
+
+        txtPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPasswordActionPerformed(evt);
+            }
+        });
+        txtPassword.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtPasswordKeyPressed(evt);
+            }
+        });
 
         txtConfirmPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtConfirmPasswordActionPerformed(evt);
+            }
+        });
+        txtConfirmPassword.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtConfirmPasswordKeyPressed(evt);
             }
         });
 
@@ -110,9 +144,29 @@ public class RegisterUser extends javax.swing.JDialog {
 
         btnRegister.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnRegister.setText("Đăng ký");
+        btnRegister.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegisterActionPerformed(evt);
+            }
+        });
 
         btnCancel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnCancel.setText("Thoát");
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel9.setText("Email:");
+
+        txtEmail.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        txtEmail.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtEmailKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -120,30 +174,36 @@ public class RegisterUser extends javax.swing.JDialog {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel6)
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel5)
-                                .addComponent(jLabel7)
-                                .addComponent(jLabel8)
-                                .addComponent(jSeparator1)
-                                .addComponent(txtName, javax.swing.GroupLayout.DEFAULT_SIZE, 443, Short.MAX_VALUE)
-                                .addComponent(txtPhone)
-                                .addComponent(txtPassword)
-                                .addComponent(txtConfirmPassword)))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jSeparator2)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(62, 62, 62)
-                        .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(57, 57, 57)
-                        .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(18, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jSeparator1)
+                                    .addComponent(txtfullName, javax.swing.GroupLayout.DEFAULT_SIZE, 443, Short.MAX_VALUE)
+                                    .addComponent(txtPhoneNumber)
+                                    .addComponent(txtPassword)
+                                    .addComponent(txtConfirmPassword)
+                                    .addComponent(jSeparator2)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(61, 61, 61)
+                                .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(53, 53, 53)
+                                .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel9)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(txtEmail)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -157,45 +217,51 @@ public class RegisterUser extends javax.swing.JDialog {
                 .addGap(25, 25, 25)
                 .addComponent(jLabel5)
                 .addGap(18, 18, 18)
-                .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtfullName, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel8)
                 .addGap(18, 18, 18)
-                .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(jLabel9)
+                .addGap(18, 18, 18)
+                .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                 .addComponent(jLabel6)
                 .addGap(18, 18, 18)
                 .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel7)
                 .addGap(18, 18, 18)
                 .addComponent(txtConfirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRegister)
-                    .addComponent(btnCancel))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnCancel)
+                    .addComponent(btnRegister))
+                .addGap(17, 17, 17))
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {txtConfirmPassword, txtName, txtPassword, txtPhone});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {txtConfirmPassword, txtPassword, txtPhoneNumber, txtfullName});
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -204,6 +270,77 @@ public class RegisterUser extends javax.swing.JDialog {
     private void txtConfirmPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtConfirmPasswordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtConfirmPasswordActionPerformed
+
+    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
+        try {
+            userLogin admin = new userLogin();
+            admin.setUsername(txtPhoneNumber.getText());
+            admin.setPassword(new String(txtPassword.getPassword()));
+            admin.setFullname(txtfullName.getText());
+            admin.setEmail(txtEmail.getText());
+
+            String username = txtPhoneNumber.getText();
+            String fullname = txtfullName.getText();
+            String comfirmP = new String(txtConfirmPassword.getPassword());
+            String password = new String(txtPassword.getPassword());
+            String email = txtEmail.getText();
+
+            if (username.equals("")) {
+                JOptionPane.showMessageDialog(this, "vui lòng điền thông tin");
+                txtPhoneNumber.setBackground(Color.red);
+                txtfullName.setBackground(Color.red);
+                txtEmail.setBackground(Color.red);
+                txtPassword.setBackground(Color.red);
+                txtConfirmPassword.setBackground(Color.red);
+            } else {
+                if (comfirmP.equals(password)) {
+                    if (email.contains("@gmail.com")) {
+                        userDAO dao = new userDAO();
+                        dao.insert(admin);
+                        JOptionPane.showMessageDialog(this, "đăng ký thành công!");
+                    } else {
+                        txtEmail.setBackground(Color.red);
+                        JOptionPane.showMessageDialog(this, "email không đúng");
+                    }
+                } else {
+                    txtConfirmPassword.setBackground(Color.red);
+                    JOptionPane.showMessageDialog(this, "password is correct");
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error :" + e);
+        }
+    }//GEN-LAST:event_btnRegisterActionPerformed
+
+    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPasswordActionPerformed
+
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
+        JOptionPane.showConfirmDialog(this, "bạn có muốn thoát không ? ");
+        System.exit(0);
+    }//GEN-LAST:event_btnCancelActionPerformed
+
+    private void txtfullNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtfullNameKeyPressed
+        txtfullName.setBackground(Color.white);
+    }//GEN-LAST:event_txtfullNameKeyPressed
+
+    private void txtPhoneNumberKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPhoneNumberKeyPressed
+        txtPhoneNumber.setBackground(Color.white);
+    }//GEN-LAST:event_txtPhoneNumberKeyPressed
+
+    private void txtEmailKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmailKeyPressed
+        txtEmail.setBackground(Color.white);
+    }//GEN-LAST:event_txtEmailKeyPressed
+
+    private void txtPasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPasswordKeyPressed
+        txtPassword.setBackground(Color.white);
+    }//GEN-LAST:event_txtPasswordKeyPressed
+
+    private void txtConfirmPasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtConfirmPasswordKeyPressed
+        txtConfirmPassword.setBackground(Color.white);
+    }//GEN-LAST:event_txtConfirmPasswordKeyPressed
 
     /**
      * @param args the command line arguments
@@ -258,13 +395,15 @@ public class RegisterUser extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JPasswordField txtConfirmPassword;
-    private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtEmail;
     private javax.swing.JPasswordField txtPassword;
-    private javax.swing.JTextField txtPhone;
+    private javax.swing.JTextField txtPhoneNumber;
+    private javax.swing.JTextField txtfullName;
     // End of variables declaration//GEN-END:variables
 }

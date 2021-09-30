@@ -6,9 +6,10 @@
 package com.softech.FrameApp.controller;
 
 import com.softech.FrameApp.bean.DanhMucBean;
-import com.softech.qlvaccine.ui.User.ChinhSuaThongTinCaNhan;
-import com.softech.FrameApp.ui.LichTiem;
-import com.softech.qlvaccine.ui.User.TrangChu;
+import com.softech.FrameApp.ui.User.ChinhSuaThongTinCaNhan;
+import com.softech.FrameApp.ui.User.Home;
+import com.softech.FrameApp.ui.User.LichTiem;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.MouseEvent;
@@ -39,7 +40,7 @@ public class ChuyenManHinhController {
         
         root.removeAll();
         root.setLayout(new BorderLayout());
-        root.add(new TrangChu());
+        root.add(new Home());
         root.validate();
         root.repaint();
         
@@ -70,7 +71,7 @@ public class ChuyenManHinhController {
       public void mouseClicked(MouseEvent e) {
             switch (kind) {
                 case "TrangChu":
-                    node = new TrangChu();
+                    node = new Home();
                     break;
                 case "ChinhSuaThongTinCaNhan":
                     node = new ChinhSuaThongTinCaNhan();

@@ -1,17 +1,23 @@
 package com.softech.FrameApp.ui.Login_Register;
 
+import com.softech.Login.userDAO;
+import com.softech.Login.userLogin;
+import java.awt.Color;
+import javax.swing.JOptionPane;
+import javax.swing.JTabbedPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-
 /**
  *
  * @author leduc
  */
 public class Login extends javax.swing.JDialog {
+
+    private userDAO udao = new userDAO();
 
     /**
      * Creates new form Login
@@ -19,6 +25,7 @@ public class Login extends javax.swing.JDialog {
     public Login(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -39,7 +46,6 @@ public class Login extends javax.swing.JDialog {
         jLabel6 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        rdbCheckAdmin = new javax.swing.JRadioButton();
         btnLogin = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
         btnRegister = new javax.swing.JButton();
@@ -49,6 +55,7 @@ public class Login extends javax.swing.JDialog {
         txtUserName = new javax.swing.JTextField();
         txtPassword = new javax.swing.JPasswordField();
         btnCancel = new javax.swing.JButton();
+        jCheckboxQuanTri = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -94,11 +101,13 @@ public class Login extends javax.swing.JDialog {
         jLabel4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel4.setText("Mật khẩu:");
 
-        rdbCheckAdmin.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        rdbCheckAdmin.setText("Đăng nhập bằng quyền quản trị viên");
-
         btnLogin.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnLogin.setText("Đăng nhập");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginActionPerformed(evt);
+            }
+        });
 
         btnRegister.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnRegister.setText("Đăng ký ngay");
@@ -111,11 +120,40 @@ public class Login extends javax.swing.JDialog {
 
         btnChangePassword.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnChangePassword.setText("Đổi mật khẩu");
+        btnChangePassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnChangePasswordActionPerformed(evt);
+            }
+        });
 
         txtUserName.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        txtUserName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUserNameActionPerformed(evt);
+            }
+        });
+        txtUserName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtUserNameKeyPressed(evt);
+            }
+        });
+
+        txtPassword.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtPasswordKeyPressed(evt);
+            }
+        });
 
         btnCancel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnCancel.setText("Thoát");
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelActionPerformed(evt);
+            }
+        });
+
+        jCheckboxQuanTri.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        jCheckboxQuanTri.setText("Quản trị viên");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -127,9 +165,6 @@ public class Login extends javax.swing.JDialog {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(rdbCheckAdmin)
-                                .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(txtUserName, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtPassword)))
@@ -142,9 +177,6 @@ public class Login extends javax.swing.JDialog {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel4))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(157, 157, 157)
-                        .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(159, 159, 159)
                         .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -160,6 +192,15 @@ public class Login extends javax.swing.JDialog {
                             .addComponent(btnRegister, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
                             .addComponent(btnChangePassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(146, 146, 146))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jCheckboxQuanTri, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -176,9 +217,9 @@ public class Login extends javax.swing.JDialog {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(rdbCheckAdmin)
-                .addGap(26, 26, 26)
+                .addGap(32, 32, 32)
+                .addComponent(jCheckboxQuanTri)
+                .addGap(17, 17, 17)
                 .addComponent(btnLogin)
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -190,7 +231,7 @@ public class Login extends javax.swing.JDialog {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnChangePassword)
                     .addComponent(jLabel8))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addComponent(btnCancel)
                 .addGap(20, 20, 20))
         );
@@ -224,6 +265,67 @@ public class Login extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        try {
+            if (txtUserName.getText().equals("")) {
+                txtUserName.setBackground(Color.red);
+                txtPassword.setBackground(Color.red);
+            } else {
+                if (jCheckboxQuanTri.isSelected()) {
+                    userLogin admin = udao.findbyAdmin(txtUserName.getText());
+                    if (admin != null) {
+                        String password = new String(txtPassword.getPassword());
+                        String passwordCurrent = admin.getPassword();
+                        if (passwordCurrent.equals(password)) {
+                            JOptionPane.showMessageDialog(this, "đăng nhập thành công");
+                        } else {
+                            JOptionPane.showMessageDialog(this, "tài khoản hoặc đăng nhập không đúng !");
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(this, "tài khoản hoặc đăng nhập không đúng !");
+                    }
+                } else {
+                    userLogin user = udao.findbyUser(txtUserName.getText());
+                    if (user != null) {
+                        String password = new String(txtPassword.getPassword());
+                        String passwordCurrent = user.getPassword();
+                        if (passwordCurrent.equals(password)) {
+                            JOptionPane.showMessageDialog(this, "đăng nhập thành công");
+                        } else {
+                            JOptionPane.showMessageDialog(this, "tài khoản hoặc đăng nhập không đúng !");
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(this, "tài khoản hoặc đăng nhập không đúng !");
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error :" + e);
+        }
+    }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
+        JOptionPane.showConfirmDialog(this, "bạn có muốn thoát không ? ");
+        System.exit(0);
+    }//GEN-LAST:event_btnCancelActionPerformed
+
+    private void txtUserNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUserNameActionPerformed
+
+    private void txtUserNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserNameKeyPressed
+        txtUserName.setBackground(Color.white);
+    }//GEN-LAST:event_txtUserNameKeyPressed
+
+    private void txtPasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPasswordKeyPressed
+        txtPassword.setBackground(Color.white);
+    }//GEN-LAST:event_txtPasswordKeyPressed
+
+    private void btnChangePasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangePasswordActionPerformed
+
+    }//GEN-LAST:event_btnChangePasswordActionPerformed
 
     /**
      * @param args the command line arguments
@@ -272,6 +374,7 @@ public class Login extends javax.swing.JDialog {
     private javax.swing.JButton btnChangePassword;
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnRegister;
+    private javax.swing.JCheckBox jCheckboxQuanTri;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -284,7 +387,6 @@ public class Login extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JRadioButton rdbCheckAdmin;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
