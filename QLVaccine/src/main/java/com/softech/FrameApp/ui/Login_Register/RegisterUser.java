@@ -42,7 +42,6 @@ public class RegisterUser extends javax.swing.JDialog {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         txtfullName = new javax.swing.JTextField();
-        txtPhoneNumber = new javax.swing.JTextField();
         txtPassword = new javax.swing.JPasswordField();
         txtConfirmPassword = new javax.swing.JPasswordField();
         jSeparator1 = new javax.swing.JSeparator();
@@ -54,6 +53,7 @@ public class RegisterUser extends javax.swing.JDialog {
         btnCancel = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
+        txtPhoneNumber = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -101,13 +101,6 @@ public class RegisterUser extends javax.swing.JDialog {
         txtfullName.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtfullNameKeyPressed(evt);
-            }
-        });
-
-        txtPhoneNumber.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        txtPhoneNumber.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtPhoneNumberKeyPressed(evt);
             }
         });
 
@@ -168,6 +161,12 @@ public class RegisterUser extends javax.swing.JDialog {
             }
         });
 
+        try {
+            txtPhoneNumber.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##########")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -187,7 +186,6 @@ public class RegisterUser extends javax.swing.JDialog {
                                     .addComponent(jLabel8)
                                     .addComponent(jSeparator1)
                                     .addComponent(txtfullName, javax.swing.GroupLayout.DEFAULT_SIZE, 443, Short.MAX_VALUE)
-                                    .addComponent(txtPhoneNumber)
                                     .addComponent(txtPassword)
                                     .addComponent(txtConfirmPassword)
                                     .addComponent(jSeparator2)))
@@ -202,7 +200,9 @@ public class RegisterUser extends javax.swing.JDialog {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(txtEmail)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtEmail)
+                            .addComponent(txtPhoneNumber))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -243,7 +243,7 @@ public class RegisterUser extends javax.swing.JDialog {
                 .addGap(17, 17, 17))
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {txtConfirmPassword, txtPassword, txtPhoneNumber, txtfullName});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {txtConfirmPassword, txtPassword, txtfullName});
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -326,10 +326,6 @@ public class RegisterUser extends javax.swing.JDialog {
         txtfullName.setBackground(Color.white);
     }//GEN-LAST:event_txtfullNameKeyPressed
 
-    private void txtPhoneNumberKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPhoneNumberKeyPressed
-        txtPhoneNumber.setBackground(Color.white);
-    }//GEN-LAST:event_txtPhoneNumberKeyPressed
-
     private void txtEmailKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmailKeyPressed
         txtEmail.setBackground(Color.white);
     }//GEN-LAST:event_txtEmailKeyPressed
@@ -403,7 +399,7 @@ public class RegisterUser extends javax.swing.JDialog {
     private javax.swing.JPasswordField txtConfirmPassword;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JPasswordField txtPassword;
-    private javax.swing.JTextField txtPhoneNumber;
+    private javax.swing.JFormattedTextField txtPhoneNumber;
     private javax.swing.JTextField txtfullName;
     // End of variables declaration//GEN-END:variables
 }
