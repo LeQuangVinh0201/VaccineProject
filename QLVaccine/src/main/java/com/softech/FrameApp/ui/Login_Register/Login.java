@@ -111,6 +111,11 @@ public class Login extends javax.swing.JDialog {
 
         btnRegister.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnRegister.setText("Đăng ký ngay");
+        btnRegister.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegisterActionPerformed(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel7.setText("Bạn chưa có tài khoản?");
@@ -326,6 +331,10 @@ public class Login extends javax.swing.JDialog {
     private void btnChangePasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangePasswordActionPerformed
 
     }//GEN-LAST:event_btnChangePasswordActionPerformed
+
+    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
+       
+    }//GEN-LAST:event_btnRegisterActionPerformed
 
     /**
      * @param args the command line arguments

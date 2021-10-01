@@ -5,12 +5,27 @@
  */
 package com.softech.FrameApp.ui.User;
 
+import com.softech.ShowMessageDialog.MessageDialogHelper;
+import com.softech.dao.DataValidator;
+import com.softech.dao.ImageHelper;
+import com.softech.dao.NguoiDanDao;
+import com.softech.model.NguoiDan;
+import java.awt.Image;
+import java.io.File;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileFilter;
+
 /**
  *
  * @author leduc
  */
 public class ChinhSuaThongTinCaNhan extends javax.swing.JPanel {
-
+    private byte[] personalImage;
+    private MainJFrameUser parentForm;
+    
+    
     /**
      * Creates new form ChinhSuaThongTinCaNhan1
      */
@@ -27,12 +42,12 @@ public class ChinhSuaThongTinCaNhan extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jlbAvatar = new javax.swing.JLabel();
-        btnChangeAvatar = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         txtDateOfBirth = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
@@ -52,9 +67,12 @@ public class ChinhSuaThongTinCaNhan extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        btnCancel = new javax.swing.JButton();
         btnSave = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
+        jPanel4 = new javax.swing.JPanel();
+        btnAddImage = new javax.swing.JButton();
+        lblImage = new javax.swing.JLabel();
+        btnUpdate = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 204));
 
@@ -86,8 +104,6 @@ public class ChinhSuaThongTinCaNhan extends javax.swing.JPanel {
         jlbAvatar.setBackground(new java.awt.Color(0, 0, 0));
         jlbAvatar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlbAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/softech/appqlsv/icons/logo128.png"))); // NOI18N
-
-        btnChangeAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/softech/appqlsv/icons/Camera-icon.png"))); // NOI18N
 
         txtDateOfBirth.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         txtDateOfBirth.addActionListener(new java.awt.event.ActionListener() {
@@ -128,6 +144,7 @@ public class ChinhSuaThongTinCaNhan extends javax.swing.JPanel {
         jLabel11.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel11.setText("Email:");
 
+        buttonGroup1.add(rdbMale);
         rdbMale.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         rdbMale.setText("Nam");
         rdbMale.addActionListener(new java.awt.event.ActionListener() {
@@ -138,6 +155,7 @@ public class ChinhSuaThongTinCaNhan extends javax.swing.JPanel {
 
         txtEmail.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
+        buttonGroup1.add(rdbFemale);
         rdbFemale.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         rdbFemale.setText("Nữ");
 
@@ -157,11 +175,52 @@ public class ChinhSuaThongTinCaNhan extends javax.swing.JPanel {
         jLabel7.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel7.setText("Địa Chỉ:");
 
-        btnCancel.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        btnCancel.setText("Huỷ bỏ");
-
         btnSave.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         btnSave.setText("Lưu");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
+
+        btnAddImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/softech/appqlsv/icons/Camera-icon.png"))); // NOI18N
+        btnAddImage.setText("thêm hình");
+        btnAddImage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddImageActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap(16, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addComponent(btnAddImage)
+                        .addGap(32, 32, 32))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblImage, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnAddImage))
+        );
+
+        btnUpdate.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        btnUpdate.setText("Cập nhật");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -170,11 +229,15 @@ public class ChinhSuaThongTinCaNhan extends javax.swing.JPanel {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jSeparator2)
-                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jlbAvatar, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(245, 245, 245)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(277, 277, 277))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSeparator2)
                             .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1011, Short.MAX_VALUE)
                             .addComponent(jLabel4)
                             .addGroup(jPanel3Layout.createSequentialGroup()
@@ -205,27 +268,21 @@ public class ChinhSuaThongTinCaNhan extends javax.swing.JPanel {
                                             .addComponent(txtPhone)))
                                     .addComponent(jScrollPane1)))
                             .addComponent(jLabel11))
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jlbAvatar, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnChangeAvatar)
-                        .addGap(369, 369, 369))))
+                        .addContainerGap())))
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(390, 390, 390)
-                .addComponent(btnCancel)
-                .addGap(63, 63, 63)
+                .addGap(220, 220, 220)
                 .addComponent(btnSave)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(85, 85, 85)
+                .addComponent(btnUpdate)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnChangeAvatar)
-                    .addComponent(jlbAvatar, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(8, 8, 8)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jlbAvatar, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -268,11 +325,11 @@ public class ChinhSuaThongTinCaNhan extends javax.swing.JPanel {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(26, 26, 26)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCancel)
-                    .addComponent(btnSave))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnSave)
+                    .addComponent(btnUpdate))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -304,7 +361,7 @@ public class ChinhSuaThongTinCaNhan extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 698, Short.MAX_VALUE)
+            .addGap(0, 708, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -329,11 +386,126 @@ public class ChinhSuaThongTinCaNhan extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDateOfBirthActionPerformed
 
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+            StringBuilder sb = new StringBuilder();
+        DataValidator.validateEmpty(txtName, sb, "Tên Không Được Để Trống");
+        DataValidator.validateEmpty(txtCMND, sb, "Số CMND Không Được Để Trống");
+        DataValidator.validateEmpty(txtEmail, sb, "Email Không Được Để Trống");
+        if(sb.length()>0){
+            MessageDialogHelper.showErrorDialog(parentForm, sb.toString(), "Lỗi Đăng Nhập");
+            return;
+        } 
+ 
+        try {
+            NguoiDan nd = new NguoiDan();
+            nd.setName(txtName.getText());
+            nd.setGender(rdbMale.isSelected() ? 1 : 0);
+            nd.setDateOfBirth(txtDateOfBirth.getText());
+            nd.setIdentification_ID(txtCMND.getText());
+            nd.setBhyt_number(txtBHYT.getText());
+            nd.setEmail(txtEmail.getText());
+            nd.setImage(personalImage);
+            nd.setAddress(txaAddress.getText());
+            NguoiDanDao dao = new NguoiDanDao();
+            if(dao.insert(nd)){
+                
+                MessageDialogHelper.showMessageDialog(parentForm, "Thông Tin Cá Nhân Đã Được Lưu", "Thông Báo");
+               
+            }else{
+                MessageDialogHelper.showConfirmDialog(parentForm, "Thông Tin Chưa Được Lưu Do Lỗi", "Cảnh Báo");
+            }
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+            MessageDialogHelper.showErrorDialog(parentForm,
+                    e.getMessage(), "Lỗi");
+        }
+    }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        StringBuilder sb = new StringBuilder();
+        DataValidator.validateEmpty(txtName, sb, "Tên Không Được Để Trống");
+        DataValidator.validateEmpty(txtCMND, sb, "Số CMND Không Được Để Trống");
+        DataValidator.validateEmpty(txtEmail, sb, "Email Không Được Để Trống");
+        if(sb.length()>0){
+            MessageDialogHelper.showErrorDialog(parentForm, sb.toString(), "Lỗi Đăng Nhập");
+            return;
+        }    
+        if(MessageDialogHelper.showConfirmDialog(parentForm, 
+                "Bạn có muốn cập nhật sinh viên không?", "Hỏi") == JOptionPane.NO_OPTION){
+               return; // ket thuc phuong thuc nay 
+        }
+        
+        try {
+            NguoiDan nd = new NguoiDan();
+            nd.setName(txtName.getText());
+            nd.setGender(rdbMale.isSelected() ? 1 : 0);
+            nd.setDateOfBirth(txtDateOfBirth.getText());
+            nd.setIdentification_ID(txtCMND.getText());
+            nd.setBhyt_number(txtBHYT.getText());
+            nd.setEmail(txtEmail.getText());
+            nd.setImage(personalImage);
+            nd.setAddress(txaAddress.getText());
+            nd.setUserName_phoneNumber(txtPhone.getText());
+       
+            NguoiDanDao dao = new NguoiDanDao();
+            if(dao.update(nd)){
+                MessageDialogHelper.showMessageDialog(parentForm, "Thôn tin đã cập nhật thành công", "Thông Báo");
+            }else{
+                MessageDialogHelper.showConfirmDialog(parentForm, "Thông tin không được cập nhật do lỗi", "Cảnh Báo");
+            }
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+            MessageDialogHelper.showErrorDialog(parentForm,
+                    e.getMessage(), "Lỗi");
+        }
+        
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnAddImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddImageActionPerformed
+        JFileChooser chooser = new JFileChooser();
+          chooser.setFileFilter(new FileFilter(){
+              @Override
+              public boolean accept(File f) {
+                  if(f.isDirectory()){
+                      return true;
+                  }else{
+                      return f.getName().toLowerCase().endsWith(".jpg");
+                  }
+                  
+              }
+
+              @Override
+              public String getDescription() {
+                   return "Image File (*.jpg)"; 
+              }
+          });
+          if(chooser.showOpenDialog(parentForm) == JFileChooser.CANCEL_OPTION){
+              return;
+          }
+          
+          File file = chooser.getSelectedFile();
+          try {
+              ImageIcon icon = new ImageIcon(file.getPath());
+              Image img = ImageHelper.resize(icon.getImage(), 140, 160);
+              ImageIcon resizedIcon = new ImageIcon(img);
+              lblImage.setIcon(resizedIcon);
+              personalImage = ImageHelper.toByteArray(img, "jpg");
+              
+              
+        } catch (Exception e) {
+            e.printStackTrace();
+            MessageDialogHelper.showMessageDialog(parentForm, e.getMessage(), "Loi");
+        }
+    }//GEN-LAST:event_btnAddImageActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCancel;
-    private javax.swing.JButton btnChangeAvatar;
+    private javax.swing.JButton btnAddImage;
     private javax.swing.JButton btnSave;
+    private javax.swing.JButton btnUpdate;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
@@ -346,10 +518,12 @@ public class ChinhSuaThongTinCaNhan extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel jlbAvatar;
+    private javax.swing.JLabel lblImage;
     private javax.swing.JRadioButton rdbFemale;
     private javax.swing.JRadioButton rdbMale;
     private javax.swing.JTextArea txaAddress;
