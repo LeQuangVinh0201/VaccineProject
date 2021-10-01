@@ -4,7 +4,6 @@ com\softech\Login\userLogin.class
 com\softech\FrameApp\ui\User\ChungNhan2$2.class
 com\softech\FrameApp\ui\Login_Register\GetPassword$3.class
 com\softech\FrameApp\ui\admin\HomeAdmin.class
-com\softech\FrameApp\ui\Login_Register\Login$8$1.class
 com\softech\FrameApp\ui\User\ChinhSuaThongTinCaNhan$3.class
 com\softech\FrameApp\ui\User\LichTiem.class
 com\softech\FrameApp\controller\ChuyenManHinhUser.class
@@ -20,14 +19,12 @@ com\softech\ConnectDB\connectDbManagerVaccine.class
 com\softech\FrameApp\ui\Login_Register\RegisterUser$2.class
 com\softech\FrameApp\controller\ChuyenManHinhController$LabelEvent.class
 com\softech\Login\mailPassword$1.class
-com\softech\FrameApp\ui\Login_Register\Login$8.class
 com\softech\FrameApp\ui\Login_Register\RegisterUser$5.class
 com\softech\FrameApp\ui\User\ChungNhan1$2.class
 com\softech\FrameApp\ui\admin\MainJFrameAdmin$1.class
 com\softech\FrameApp\ui\Login_Register\Login$1.class
 com\softech\FrameApp\ui\User\MainJFrameUser$1.class
 com\softech\FrameApp\ui\User\ChinhSuaThongTinCaNhan$6.class
-com\softech\FrameApp\ui\Login_Register\RegisterUser$10$1.class
 com\softech\model\NguoiDan.class
 com\softech\FrameApp\ui\Login_Register\ChangePassword$3.class
 com\softech\FrameApp\ui\Login_Register\GetPassword$1.class
@@ -38,7 +35,6 @@ com\softech\FrameApp\ui\User\MainJFrameUser$2.class
 com\softech\FrameApp\ui\Login_Register\RegisterUser$4.class
 com\softech\FrameApp\ui\User\ChinhSuaThongTinCaNhan$5.class
 com\softech\FrameApp\ui\Login_Register\GetPassword$2.class
-com\softech\FrameApp\ui\Login_Register\Login$7.class
 com\softech\FrameApp\ui\admin\MainJFrameAdmin$2.class
 com\softech\ShowMessageDialog\MessageDialogHelper.class
 com\softech\FrameApp\ui\Login_Register\RegisterUser$3.class
@@ -47,6 +43,7 @@ com\softech\FrameApp\ui\User\MainJFrameUser$3.class
 com\softech\FrameApp\ui\Login_Register\Login$3.class
 com\softech\FrameApp\controller\ChuyenManHinhUser$LabelEvent.class
 com\softech\FrameApp\ui\User\ChungNhan1.class
+com\softech\FrameApp\ui\Login_Register\Login$6$1.class
 com\softech\FrameApp\ui\Login_Register\ChangePassword$1.class
 com\softech\FrameApp\ui\Login_Register\RegisterUser$6.class
 com\softech\FrameApp\ui\User\Home.class
@@ -56,9 +53,7 @@ com\softech\FrameApp\main\Main.class
 com\softech\FrameApp\ui\Login_Register\RegisterUser$9.class
 com\softech\FrameApp\ui\User\ChungNhan2$1.class
 com\softech\FrameApp\ui\User\ChinhSuaThongTinCaNhan$1.class
-com\softech\FrameApp\ui\Login_Register\RegisterUser$10.class
 com\softech\FrameApp\ui\Login_Register\RegisterUser.class
-com\softech\FrameApp\ui\Login_Register\GetPassword$4.class
 com\softech\FrameApp\ui\admin\MainJFrameAdmin.class
 com\softech\FrameApp\ui\admin\ChinhSuaThongTinNguoiDung$1.class
 com\softech\FrameApp\ui\User\ChinhSuaThongTinCaNhan$4.class
@@ -84,7 +79,6 @@ com\softech\FrameApp\bean\DanhMucBean.class
 com\softech\FrameApp\ui\User\ChungNhanChuaTiem.class
 com\softech\FrameApp\ui\User\ChungNhan2.class
 com\softech\dao\DataValidator.class
-com\softech\FrameApp\ui\Login_Register\GetPassword$4$1.class
 com\softech\Login\mailPassword.class
 com\softech\FrameApp\ui\Login_Register\RegisterUser$7.class
 com\softech\Login\userDAO.class

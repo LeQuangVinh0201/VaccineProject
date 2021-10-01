@@ -5,6 +5,7 @@
  */
 package com.softech.FrameApp.ui.User;
 
+import com.softech.FrameApp.ui.Login_Register.Login;
 import com.softech.ShowMessageDialog.MessageDialogHelper;
 import com.softech.dao.DataValidator;
 import com.softech.dao.ImageHelper;
@@ -31,8 +32,13 @@ public class ChinhSuaThongTinCaNhan extends javax.swing.JPanel {
      */
     public ChinhSuaThongTinCaNhan() {
         initComponents();
+        
+        //hien thi so dien thoai va khong the thay khi dang nhap thanh cong
+        Login dialog = new Login(new javax.swing.JFrame(), true);
+        txtPhone.setText(dialog.username_verified);
+        txtPhone.setFocusable(false);
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -99,7 +105,7 @@ public class ChinhSuaThongTinCaNhan extends javax.swing.JPanel {
                 .addContainerGap(30, Short.MAX_VALUE))
         );
 
-        jPanel3.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel3.setBackground(new java.awt.Color(153, 255, 204));
 
         jlbAvatar.setBackground(new java.awt.Color(0, 0, 0));
         jlbAvatar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -183,6 +189,9 @@ public class ChinhSuaThongTinCaNhan extends javax.swing.JPanel {
             }
         });
 
+        jPanel4.setBackground(new java.awt.Color(102, 255, 255));
+        jPanel4.setForeground(new java.awt.Color(102, 102, 102));
+
         btnAddImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/softech/appqlsv/icons/Camera-icon.png"))); // NOI18N
         btnAddImage.setText("thêm hình");
         btnAddImage.addActionListener(new java.awt.event.ActionListener() {
@@ -195,15 +204,14 @@ public class ChinhSuaThongTinCaNhan extends javax.swing.JPanel {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap(16, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(btnAddImage)
-                        .addGap(32, 32, 32))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(btnAddImage))
+                    .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

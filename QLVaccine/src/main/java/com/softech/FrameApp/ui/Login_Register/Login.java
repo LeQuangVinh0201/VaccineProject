@@ -18,7 +18,7 @@ import javax.swing.JTabbedPane;
 public class Login extends javax.swing.JDialog {
 
     private userDAO udao = new userDAO();
-
+    public String username_verified;
     /**
      * Creates new form Login
      */
@@ -293,6 +293,7 @@ public class Login extends javax.swing.JDialog {
                         String passwordCurrent = user.getPassword();
                         if (passwordCurrent.equals(password)) {
                             JOptionPane.showMessageDialog(this, "đăng nhập thành công");
+                            username_verified = user.getUsername();
                         } else {
                             JOptionPane.showMessageDialog(this, "tài khoản hoặc đăng nhập không đúng !");
                         }
