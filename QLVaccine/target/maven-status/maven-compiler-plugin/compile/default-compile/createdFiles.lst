@@ -1,12 +1,6 @@
-<<<<<<< HEAD
 com\softech\FrameApp\ui\Login_Register\RegisterUser$3.class
 com\softech\FrameApp\ui\User\ChungNhanChuaTiem$2.class
 com\softech\FrameApp\ui\User\MainJFrameUser$3.class
-=======
-com\softech\FrameApp\controller\ChuyenManHinhUser.class
-com\softech\FrameApp\ui\User\ChungNhan1$2.class
-com\softech\FrameApp\ui\User\ChungNhan1$1.class
->>>>>>> 21f18dc2fd2ca704ff0f8e8fb665dc676caf90f0
 com\softech\FrameApp\controller\ChuyenManHinhUser$LabelEvent.class
 com\softech\FrameApp\ui\User\MainJFrameUser.class
 com\softech\FrameApp\ui\Admin\ChinhSuaThongTinNguoiDung$5.class
@@ -16,7 +10,6 @@ com\softech\FrameApp\ui\Login_Register\ChangePassword$1.class
 com\softech\FrameApp\ui\User\Home.class
 com\softech\FrameApp\ui\Admin\HomeAdmin.class
 com\softech\FrameApp\controller\ChuyenManHinhAdmin$LabelEvent.class
-<<<<<<< HEAD
 com\softech\FrameApp\ui\Admin\MainJFrameAdmin$2.class
 com\softech\FrameApp\ui\User\ChinhSuaThongTinCaNhan$3.class
 com\softech\FrameApp\main\Main.class
@@ -61,6 +54,3 @@ com\softech\FrameApp\ui\User\ChungNhanChuaTiem.class
 com\softech\FrameApp\ui\User\ChungNhan2.class
 com\softech\FrameApp\ui\Admin\ChinhSuaThongTinNguoiDung.class
 com\softech\FrameApp\ui\Admin\MainJFrameAdmin.class
-=======
-com\softech\FrameApp\controller\ChuyenManHinhAdmin.class
->>>>>>> 21f18dc2fd2ca704ff0f8e8fb665dc676caf90f0
