@@ -21,7 +21,7 @@ public class userDAO {
     private ArrayList<userLogin> list = new ArrayList<>();
 
     public boolean insert(userLogin admin) throws SQLException {
-        String sql = "insert into NguoiTiem (userNumber_phonenumber,password,fullname,email) values (?,?,?,?)";
+        String sql = "insert into NguoiTiem (userName_phoneNumber,password,fullname,email) values (?,?,?,?)";
 
         Connection con = connectDbManagerVaccine.OpenConnection();
         PreparedStatement pstmt = con.prepareStatement(sql);
@@ -35,7 +35,7 @@ public class userDAO {
     }
 
     public userLogin findbyUser(String username) throws SQLException {
-        String sql = "select userNumber_phonenumber, password from NguoiTiem where userNumber_phonenumber = ?";
+        String sql = "select userName_phoneNumber, password from NguoiTiem where userName_phoneNumber = ?";
         Connection con = connectDbManagerVaccine.OpenConnection();
         PreparedStatement pstmt = con.prepareStatement(sql);
         pstmt.setString(1, username);
@@ -43,7 +43,7 @@ public class userDAO {
         while (rs.next()) {
             userLogin user = new userLogin();
 
-            user.setUsername(rs.getString("userNumber_phonenumber"));
+            user.setUsername(rs.getString("userName_phoneNumber"));
             user.setPassword(rs.getString("password"));
             return user;
         }
@@ -66,7 +66,7 @@ public class userDAO {
     }
 
     public userLogin findByEmail(String username, String email) throws SQLException {
-        String sql = "select password,email,userNumber_phonenumber from NguoiTiem where userNumber_phonenumber = ? and email = ? ";
+        String sql = "select password,email,userName_phoneNumber from NguoiTiem where userName_phoneNumber = ? and email = ? ";
         Connection con = connectDbManagerVaccine.OpenConnection();
         PreparedStatement pstmt = con.prepareStatement(sql);
         pstmt.setString(1, username);
@@ -74,7 +74,7 @@ public class userDAO {
          ResultSet rs = pstmt.executeQuery();
         while (rs.next()) {
             userLogin user = new userLogin();
-            user.setUsername(rs.getString("userNumber_phonenumber"));
+            user.setUsername(rs.getString("userName_phoneNumber"));
             user.setEmail(rs.getString("email"));
             user.setPassword(rs.getString("password"));
             return user;
@@ -83,7 +83,7 @@ public class userDAO {
     }
     
     public boolean updatePassword(userLogin user) throws SQLException{
-        String sql = "update NguoiTiem set password = ? where userNumber_phonenumber = ? ";
+        String sql = "update NguoiTiem set password = ? where userName_phoneNumber = ? ";
         Connection con = connectDbManagerVaccine.OpenConnection();
         PreparedStatement pstmt = con.prepareStatement(sql);
         
