@@ -42,7 +42,6 @@ public class ChangePassword extends javax.swing.JDialog {
         jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        txtnumberUser = new javax.swing.JTextField();
         txtPasswordCurrent = new javax.swing.JPasswordField();
         txtConfirmNewPassword = new javax.swing.JPasswordField();
         jSeparator1 = new javax.swing.JSeparator();
@@ -54,6 +53,7 @@ public class ChangePassword extends javax.swing.JDialog {
         txtNewPassword = new javax.swing.JPasswordField();
         jSeparator2 = new javax.swing.JSeparator();
         btnCancel = new javax.swing.JButton();
+        txtnumberUser = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -90,8 +90,6 @@ public class ChangePassword extends javax.swing.JDialog {
         jLabel3.setFont(new java.awt.Font("Arial", 1, 30)); // NOI18N
         jLabel3.setText("Đổi mật khẩu");
 
-        txtnumberUser.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-
         txtConfirmNewPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtConfirmNewPasswordActionPerformed(evt);
@@ -126,12 +124,18 @@ public class ChangePassword extends javax.swing.JDialog {
             }
         });
 
+        try {
+            txtnumberUser.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##########")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -142,17 +146,19 @@ public class ChangePassword extends javax.swing.JDialog {
                                     .addComponent(jLabel7)
                                     .addComponent(jLabel8)
                                     .addComponent(jSeparator1)
-                                    .addComponent(txtnumberUser, javax.swing.GroupLayout.DEFAULT_SIZE, 443, Short.MAX_VALUE)
-                                    .addComponent(txtConfirmNewPassword)
+                                    .addComponent(txtConfirmNewPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 443, Short.MAX_VALUE)
                                     .addComponent(txtPasswordCurrent))
                                 .addComponent(jLabel9))
                             .addComponent(jSeparator2)
-                            .addComponent(txtNewPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtNewPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 443, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(61, 61, 61)
                         .addComponent(btnChangePassword, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(38, 38, 38)
-                        .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(txtnumberUser)))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -164,20 +170,20 @@ public class ChangePassword extends javax.swing.JDialog {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel8)
-                .addGap(18, 18, 18)
-                .addComponent(txtnumberUser, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtnumberUser, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel6)
                 .addGap(18, 18, 18)
-                .addComponent(txtPasswordCurrent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(txtPasswordCurrent, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14)
                 .addComponent(jLabel9)
                 .addGap(18, 18, 18)
-                .addComponent(txtNewPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtNewPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel7)
-                .addGap(18, 18, 18)
-                .addComponent(txtConfirmNewPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtConfirmNewPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -186,8 +192,6 @@ public class ChangePassword extends javax.swing.JDialog {
                     .addComponent(btnChangePassword))
                 .addGap(59, 59, 59))
         );
-
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {txtConfirmNewPassword, txtNewPassword, txtPasswordCurrent, txtnumberUser});
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -308,6 +312,6 @@ public class ChangePassword extends javax.swing.JDialog {
     private javax.swing.JPasswordField txtConfirmNewPassword;
     private javax.swing.JPasswordField txtNewPassword;
     private javax.swing.JPasswordField txtPasswordCurrent;
-    private javax.swing.JTextField txtnumberUser;
+    private javax.swing.JFormattedTextField txtnumberUser;
     // End of variables declaration//GEN-END:variables
 }
