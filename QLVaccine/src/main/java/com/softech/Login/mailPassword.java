@@ -1,4 +1,4 @@
-/*
+    /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -23,7 +23,7 @@ public class mailPassword {
 
     public static void send(Email email) throws Exception {
 
-        Properties prop = new Properties();//cau hinh mail
+               Properties prop = new Properties();//cau hinh mail
         prop.put("mail.smtp.host", "smtp.gmail.com"); //SMTP host
         prop.put("mail.smtp.port", "587"); //TLS Port
         prop.put("mail.smtp.auth", "true"); //enable authentication
