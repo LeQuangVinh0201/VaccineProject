@@ -16,7 +16,7 @@ import java.sql.Statement;
  */
 public class connectDbManagerVaccine {
         public static Connection OpenConnection() throws SQLException{
-        String connectionUrl = "jdbc:sqlserver://LONG:1433; databaseName = ManagerVaccine; user=demo; password=123";
+        String connectionUrl = "jdbc:sqlserver://LE-QUANG-VINH:1433;databaseName=VaccineApp; user=sa; password=vinh";
         Connection con = DriverManager.getConnection(connectionUrl);
         Statement stmt = con.createStatement();
         return con;

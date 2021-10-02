@@ -19,6 +19,8 @@ import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileFilter;
 
 import com.softech.FrameApp.ui.Login_Register.Login;
+import com.softech.Login.userDAO;
+import com.softech.Login.userLogin;
 /**
  *
  * @author leduc
@@ -34,12 +36,48 @@ public class ChinhSuaThongTinCaNhan extends javax.swing.JPanel {
     public ChinhSuaThongTinCaNhan() {
         initComponents();
         
-    //hien thi so dien thoai va khong the thay khi dang nhap thanh cong
-        Login dialog = new Login(new javax.swing.JFrame(), true);
-        txtPhone.setText(dialog.username_verified);
+    //hien thi so dien thoai va khong the thay khi dang nhap thanh cong\
+        showPhoneNumber();
+        setUserInfo();
+    }
+    
+    public void showPhoneNumber(){
+        Login lg = new Login();
+        txtPhone.setText(lg.username_verified);
         txtPhone.setFocusable(false);
     }
-
+    
+    public void setUserInfo(){
+        NguoiDanDao dao = new NguoiDanDao();
+        try {
+            NguoiDan nd = dao.findByUserName(txtPhone.getText());
+            
+            txtName.setText(nd.getName());
+            txtDateOfBirth.setText(nd.getDateOfBirth());
+            txtCMND.setText(nd.getIdentification_ID());
+            txtEmail.setText(nd.getEmail());
+            txaAddress.setText(nd.getAddress());
+            if(nd.getGender() == 1){
+            rdbMale.setSelected(true);
+            }else{
+             rdbFemale.setSelected(true);
+            }
+            txtBHYT.setText(nd.getBhyt_number());
+            if(nd.getImage() != null){
+                Image img = ImageHelper.createImageFromByteArray(nd.getImage(), "jpg");
+                lblImage.setIcon(new ImageIcon(img));
+                personalImage = nd.getImage();
+            }else{
+                personalImage = nd.getImage();
+                ImageIcon icon = new ImageIcon(getClass().getResource("/com/softech/FrameApp/icons/user32.png"));
+                lblImage.setIcon(icon);
+            }
+            
+        } catch (Exception e) {
+            e.printStackTrace();      
+        }  
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -49,6 +87,7 @@ public class ChinhSuaThongTinCaNhan extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -150,6 +189,7 @@ public class ChinhSuaThongTinCaNhan extends javax.swing.JPanel {
         jLabel11.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel11.setText("Email:");
 
+        buttonGroup1.add(rdbMale);
         rdbMale.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         rdbMale.setText("Nam");
         rdbMale.addActionListener(new java.awt.event.ActionListener() {
@@ -160,6 +200,7 @@ public class ChinhSuaThongTinCaNhan extends javax.swing.JPanel {
 
         txtEmail.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
+        buttonGroup1.add(rdbFemale);
         rdbFemale.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         rdbFemale.setText("Nữ");
 
@@ -329,7 +370,7 @@ public class ChinhSuaThongTinCaNhan extends javax.swing.JPanel {
                 .addGap(26, 26, 26)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnUpdate)
                     .addComponent(btnSave))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -348,7 +389,7 @@ public class ChinhSuaThongTinCaNhan extends javax.swing.JPanel {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(89, Short.MAX_VALUE))
+                .addContainerGap(109, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -364,7 +405,7 @@ public class ChinhSuaThongTinCaNhan extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 708, Short.MAX_VALUE)
+            .addGap(0, 728, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -510,6 +551,7 @@ public class ChinhSuaThongTinCaNhan extends javax.swing.JPanel {
     private javax.swing.JButton btnChangeAvatar;
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnUpdate;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;

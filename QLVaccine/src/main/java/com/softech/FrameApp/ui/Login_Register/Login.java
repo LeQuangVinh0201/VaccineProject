@@ -25,7 +25,7 @@ import javax.swing.JTabbedPane;
 public class Login extends javax.swing.JPanel {
 
     private userDAO udao = new userDAO();
-    public String username_verified;
+    public static String username_verified;
 
     /**
      * Creates new form RegisterUser1
@@ -230,7 +230,7 @@ public class Login extends javax.swing.JPanel {
                             mainJFrameUser.setVisible(true);
                             mainJFrameUser.pack();
                             mainJFrameUser.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                            username_verified = user.getUsername();
+                           username_verified = user.getUsername();
                         } else {
                             JOptionPane.showMessageDialog(this, "tài khoản hoặc đăng nhập không đúng !");
                         }

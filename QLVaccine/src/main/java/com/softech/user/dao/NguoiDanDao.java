@@ -10,6 +10,7 @@ import com.softech.user.model.NguoiDan;
 import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.sql.rowset.serial.SerialBlob;
 
 /**
@@ -89,6 +90,44 @@ public class NguoiDanDao {
 
         }
     }
+    
+    public NguoiDan findByUserName(String userName)
+            throws Exception {
+         // phai co 1 khoang trang sau "  , khong thoi se loi sql
+        String sql = "select * from NguoiTiem where UserName_phoneNumber = ?";
+        String sql2 = "select CONVERT(VARCHAR(10), GETDATE(), 103) from NguoiTiem where userName_phoneNumber = ?";
+        try (
+                 Connection con = connectDbManagerVaccine.OpenConnection(); 
+                PreparedStatement pstmt = con.prepareStatement(sql);
+                PreparedStatement pstmt2 = con.prepareStatement(sql2);
+            ){
+            pstmt.setString(1, userName);
+            
+            try(ResultSet rs = pstmt.executeQuery()){
+                if(rs.next()){
+                   NguoiDan nd = new NguoiDan();
+                   
+                    nd.setName(rs.getString("name"));
+                    nd.setDateOfBirth(rs.getString("dateOfBirth"));
+                    nd.setIdentification_ID(rs.getString("identification_ID"));
+                    nd.setEmail(rs.getString("email"));
+                    nd.setAddress(rs.getString("address"));
+                    nd.setGender(rs.getInt("gender"));
+                    nd.setBhyt_number(rs.getString("bhyt_number"));
+                    Blob blob =rs.getBlob("image");
+                    if(blob != null){
+                    nd.setImage(blob.getBytes(1, (int) blob.length()));
+        }
+                   
+                   return nd;
+                }
+            
+            }
+            return null;
+        }
+    }
+    
+    
     
     
     
