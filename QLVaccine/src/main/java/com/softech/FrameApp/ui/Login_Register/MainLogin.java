@@ -21,7 +21,6 @@ public class MainLogin extends javax.swing.JFrame {
      */
     public MainLogin() {
         initComponents();
-        setLocationRelativeTo(null);
         
         ChuyenManHinhLogin controller = new ChuyenManHinhLogin(jpnView);
         controller.setView(jpnLogin, jlbLogin);
