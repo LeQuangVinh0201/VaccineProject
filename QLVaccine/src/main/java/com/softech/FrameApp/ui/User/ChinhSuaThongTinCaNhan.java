@@ -7,10 +7,10 @@ package com.softech.FrameApp.ui.User;
 
 import com.softech.FrameApp.ui.Login_Register.Login;
 import com.softech.ShowMessageDialog.MessageDialogHelper;
-import com.softech.dao.DataValidator;
-import com.softech.dao.ImageHelper;
-import com.softech.dao.NguoiDanDao;
-import com.softech.model.NguoiDan;
+import com.softech.user.dao.DataValidator;
+import com.softech.user.dao.ImageHelper;
+import com.softech.user.dao.NguoiDanDao;
+import com.softech.user.model.NguoiDan;
 import java.awt.Image;
 import java.io.File;
 import javax.swing.ImageIcon;

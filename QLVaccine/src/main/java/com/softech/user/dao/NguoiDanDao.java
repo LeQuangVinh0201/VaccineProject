@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.softech.dao;
+package com.softech.user.dao;
 
 import com.softech.ConnectDB.connectDbManagerVaccine;
-import com.softech.model.NguoiDan;
+import com.softech.user.model.NguoiDan;
 import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
