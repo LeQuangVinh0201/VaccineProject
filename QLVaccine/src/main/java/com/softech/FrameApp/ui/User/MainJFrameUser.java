@@ -7,8 +7,13 @@ package com.softech.FrameApp.ui.User;
 
 import com.softech.FrameApp.bean.DanhMucBean;
 import com.softech.FrameApp.controller.ChuyenManHinhUser;
+import com.softech.FrameApp.ui.Login_Register.MainLogin;
+import com.softech.Login.userDAO;
+import com.softech.Login.userLogin;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -43,7 +48,20 @@ public class MainJFrameUser extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuItem4 = new javax.swing.JMenuItem();
+        jdlChangePassword = new javax.swing.JDialog();
+        jpnQuenMK = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jSeparator5 = new javax.swing.JSeparator();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        btnChangePassword = new javax.swing.JButton();
+        jSeparator6 = new javax.swing.JSeparator();
+        txtPasswordCurrent = new javax.swing.JPasswordField();
+        txtNewPassword = new javax.swing.JPasswordField();
+        txtConfirmNewPassword = new javax.swing.JPasswordField();
+        txtnumberUser = new javax.swing.JFormattedTextField();
         jpnRoot = new javax.swing.JPanel();
         jpnView = new javax.swing.JPanel();
         jpnMenu = new javax.swing.JPanel();
@@ -59,6 +77,7 @@ public class MainJFrameUser extends javax.swing.JFrame {
         jlbChungNhan = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -66,7 +85,116 @@ public class MainJFrameUser extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
 
-        jMenuItem4.setText("jMenuItem4");
+        jdlChangePassword.setModal(true);
+
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 30)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Đổi mật khẩu");
+
+        jSeparator5.setBackground(new java.awt.Color(0, 0, 0));
+
+        jLabel8.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel8.setText("Số điện thoại:");
+
+        jLabel6.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel6.setText("Mật khẩu cũ:");
+
+        jLabel9.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel9.setText("Mật khẩu mới:");
+
+        jLabel10.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel10.setText("Xác nhận mật khẩu mới:");
+
+        btnChangePassword.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnChangePassword.setText("Đổi mật khẩu");
+        btnChangePassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnChangePasswordActionPerformed(evt);
+            }
+        });
+
+        jSeparator6.setBackground(new java.awt.Color(0, 0, 0));
+
+        txtConfirmNewPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtConfirmNewPasswordActionPerformed(evt);
+            }
+        });
+
+        try {
+            txtnumberUser.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##########")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        javax.swing.GroupLayout jpnQuenMKLayout = new javax.swing.GroupLayout(jpnQuenMK);
+        jpnQuenMK.setLayout(jpnQuenMKLayout);
+        jpnQuenMKLayout.setHorizontalGroup(
+            jpnQuenMKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpnQuenMKLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jpnQuenMKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnQuenMKLayout.createSequentialGroup()
+                        .addGroup(jpnQuenMKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnChangePassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jSeparator5, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtPasswordCurrent, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtNewPassword, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jpnQuenMKLayout.createSequentialGroup()
+                                .addComponent(jLabel10)
+                                .addGap(0, 191, Short.MAX_VALUE))
+                            .addComponent(txtConfirmNewPassword, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jSeparator6, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtnumberUser)
+                            .addGroup(jpnQuenMKLayout.createSequentialGroup()
+                                .addGroup(jpnQuenMKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel9))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())))
+        );
+        jpnQuenMKLayout.setVerticalGroup(
+            jpnQuenMKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpnQuenMKLayout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel8)
+                .addGap(18, 18, 18)
+                .addComponent(txtnumberUser, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel6)
+                .addGap(18, 18, 18)
+                .addComponent(txtPasswordCurrent, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel9)
+                .addGap(18, 18, 18)
+                .addComponent(txtNewPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel10)
+                .addGap(18, 18, 18)
+                .addComponent(txtConfirmNewPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnChangePassword, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(71, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jdlChangePasswordLayout = new javax.swing.GroupLayout(jdlChangePassword.getContentPane());
+        jdlChangePassword.getContentPane().setLayout(jdlChangePasswordLayout);
+        jdlChangePasswordLayout.setHorizontalGroup(
+            jdlChangePasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jpnQuenMK, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        jdlChangePasswordLayout.setVerticalGroup(
+            jdlChangePasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jpnQuenMK, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -216,6 +344,19 @@ public class MainJFrameUser extends javax.swing.JFrame {
 
         jButton2.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         jButton2.setText("Thoát");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        jButton3.setText("Đổi mật khẩu");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jpnMenuLayout = new javax.swing.GroupLayout(jpnMenu);
         jpnMenu.setLayout(jpnMenuLayout);
@@ -230,14 +371,20 @@ public class MainJFrameUser extends javax.swing.JFrame {
                             .addComponent(jpnChungNhan, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jpnLichTiem, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jpnHomeUser, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jpnChinhSuaThongTinCaNhan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jpnChinhSuaThongTinCaNhan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jpnMenuLayout.createSequentialGroup()
+                                .addGap(126, 126, 126)
+                                .addComponent(jButton2)
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jpnMenuLayout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2)
-                        .addGap(38, 38, 38)))
+                        .addGap(110, 110, 110)
+                        .addComponent(jButton3)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(jpnMenuLayout.createSequentialGroup()
+                .addGap(121, 121, 121)
+                .addComponent(jButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jpnMenuLayout.setVerticalGroup(
             jpnMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -251,11 +398,13 @@ public class MainJFrameUser extends javax.swing.JFrame {
                 .addComponent(jpnLichTiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
                 .addComponent(jpnChungNhan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 225, Short.MAX_VALUE)
-                .addGroup(jpnMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addGap(40, 40, 40))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(18, 18, 18)
+                .addComponent(jButton3)
+                .addGap(18, 18, 18)
+                .addComponent(jButton2)
+                .addGap(103, 103, 103))
         );
 
         javax.swing.GroupLayout jpnRootLayout = new javax.swing.GroupLayout(jpnRoot);
@@ -314,8 +463,56 @@ public class MainJFrameUser extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        MainLogin ml = new MainLogin();
+        ml.setVisible(true);
+        ml.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        ml.pack();
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        jdlChangePassword.setVisible(true);
+        jdlChangePassword.pack();
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        JOptionPane.showConfirmDialog(this, "bạn có muốn thoát không ? ");
+        System.exit(0);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void btnChangePasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangePasswordActionPerformed
+        try {
+            userDAO dao = new userDAO();
+            userLogin user = dao.findbyUser(txtnumberUser.getText());
+            if(user != null){
+                String passwordCurrent = new String(txtPasswordCurrent.getPassword());
+                if(passwordCurrent.equals(user.getPassword())){
+                    String newpassword = new String(txtNewPassword.getPassword());
+                    String newConfirmPass = new String(txtConfirmNewPassword.getPassword());
+                    if(newpassword.equals(newConfirmPass)){
+                        user.setPassword(newpassword);
+                        dao.updatePassword(user);
+                        JOptionPane.showMessageDialog(this, "Đổi mật khẩu thành công");
+                    }else{
+                        JOptionPane.showMessageDialog(this, "Mật khẩu không khớp!");
+                    }
+                }else{
+                    JOptionPane.showMessageDialog(this, "Mật khẩu hiện tại không đúng !");
+                }
+
+            }else{
+                JOptionPane.showMessageDialog(this, "Tài khoản không tồn tại !");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error : " + e);
+        }
+    }//GEN-LAST:event_btnChangePasswordActionPerformed
+
+    private void txtConfirmNewPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtConfirmNewPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtConfirmNewPasswordActionPerformed
 
     /**
      * @param args the command line arguments
@@ -330,17 +527,26 @@ public class MainJFrameUser extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnChangePassword;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JPanel jPanel13;
+    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JDialog jdlChangePassword;
     private javax.swing.JLabel jlbChinhSuaThongTinCaNhan;
     private javax.swing.JLabel jlbChungNhan;
     private javax.swing.JLabel jlbHomeUser;
@@ -350,7 +556,12 @@ public class MainJFrameUser extends javax.swing.JFrame {
     private javax.swing.JPanel jpnHomeUser;
     private javax.swing.JPanel jpnLichTiem;
     private javax.swing.JPanel jpnMenu;
+    private javax.swing.JPanel jpnQuenMK;
     private javax.swing.JPanel jpnRoot;
     private javax.swing.JPanel jpnView;
+    private javax.swing.JPasswordField txtConfirmNewPassword;
+    private javax.swing.JPasswordField txtNewPassword;
+    private javax.swing.JPasswordField txtPasswordCurrent;
+    private javax.swing.JFormattedTextField txtnumberUser;
     // End of variables declaration//GEN-END:variables
 }

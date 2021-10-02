@@ -29,8 +29,6 @@ public class MainJFrameAdmin extends javax.swing.JFrame {
         List<DanhMucBean> listItem = new ArrayList<>();
         listItem.add(new DanhMucBean("TrangChuAdmin", jpnHomeAdmin, jlbHomeAdmin));
         listItem.add(new DanhMucBean("ChinhSuaThongTinNguoiDung", jpnChinhSuaThongTinNguoiDung, jlbChinhSuaThongTinNguoiDung));
-//        listItem.add(new DanhMucBean("LichTiem", jpnQLVaccine, jlbQLVaccine));
-//        listItem.add(new DanhMucBean("ChungNhan", jpnThongKe, jlbThongKe));
         
         controllerAdmin.setEvent(listItem);
     }

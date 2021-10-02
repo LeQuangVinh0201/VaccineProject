@@ -75,14 +75,6 @@ public class ChuyenManHinhAdmin {
                 case "ChinhSuaThongTinNguoiDung":
                     node = new ChinhSuaThongTinNguoiDung();
                     break;
-//                case "LichTiem":
-//                    node = new LichTiem();
-//                    break;
-//                case "ChungNhan":
-//                    node = new ChungNhanChuaTiem();
-//                    break;
-
-                // more
                 default:
                     node = new HomeAdmin();
                     break;
