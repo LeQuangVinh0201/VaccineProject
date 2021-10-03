@@ -5,6 +5,10 @@
  */
 package com.softech.FrameApp.ui.User;
 
+import com.softech.FrameApp.ui.Login_Register.Login;
+import com.softech.user.dao.NguoiDanDao;
+import com.softech.user.model.NguoiDan;
+
 /**
  *
  * @author leduc
@@ -16,8 +20,25 @@ public class ChungNhanChuaTiem extends javax.swing.JPanel {
      */
     public ChungNhanChuaTiem() {
         initComponents();
+        fillUserInfo();
     }
-
+    
+    public void fillUserInfo(){
+        try {
+            Login lg = new Login();
+            String userName = lg.username_verified;
+            NguoiDan nd = new NguoiDan();
+            NguoiDanDao dao = new NguoiDanDao();
+            nd = dao.findByUserName(userName);
+            txtName.setText(nd.getName());
+            txtDayOfBirth.setText(nd.getDateOfBirth());
+            txtCMND_CCCD.setText(nd.getIdentification_ID());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

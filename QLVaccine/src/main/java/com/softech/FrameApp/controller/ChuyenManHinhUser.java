@@ -6,10 +6,14 @@
 package com.softech.FrameApp.controller;
 
 import com.softech.FrameApp.bean.DanhMucBean;
+import com.softech.FrameApp.ui.Login_Register.Login;
 import com.softech.FrameApp.ui.User.ChinhSuaThongTinCaNhan;
+import com.softech.FrameApp.ui.User.ChungNhan1;
+import com.softech.FrameApp.ui.User.ChungNhan2;
 import com.softech.FrameApp.ui.User.ChungNhanChuaTiem;
 import com.softech.FrameApp.ui.User.Home;
 import com.softech.FrameApp.ui.User.LichTiem;
+import com.softech.user.dao.NguoiDanDao;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.MouseEvent;
@@ -80,7 +84,26 @@ public class ChuyenManHinhUser {
                     node = new LichTiem();
                     break;
                 case "ChungNhan":
-                    node = new ChungNhanChuaTiem();
+                    
+                    try {
+                        Login lg = new Login();
+                        String userName = lg.username_verified;
+                        NguoiDanDao dao = new NguoiDanDao();
+                        int certification = dao.getCertificattion(userName);
+                        switch (certification) {
+                            case 0:
+                            node = new ChungNhanChuaTiem();
+                            break;
+                            case 1:
+                            node = new ChungNhan1();
+                            break;
+                            case 2:
+                            node = new ChungNhan2();
+                            break;
+                        }
+                    } catch (Exception b) {
+                        b.printStackTrace();
+                    }
                     break;
 
                 // more

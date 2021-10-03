@@ -573,6 +573,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Ch&#x1ee9;ng nh&#x1ead;n vaccine"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jlbChungNhanMouseClicked"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>

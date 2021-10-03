@@ -316,6 +316,11 @@ public class MainJFrameUser extends javax.swing.JFrame {
         jlbChungNhan.setForeground(new java.awt.Color(255, 255, 255));
         jlbChungNhan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/softech/appqlsv/icons/user32.png"))); // NOI18N
         jlbChungNhan.setText("Chứng nhận vaccine");
+        jlbChungNhan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jlbChungNhanMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jpnChungNhanLayout = new javax.swing.GroupLayout(jpnChungNhan);
         jpnChungNhan.setLayout(jpnChungNhanLayout);
@@ -516,6 +521,10 @@ public class MainJFrameUser extends javax.swing.JFrame {
     private void txtConfirmNewPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtConfirmNewPasswordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtConfirmNewPasswordActionPerformed
+
+    private void jlbChungNhanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbChungNhanMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jlbChungNhanMouseClicked
 
     /**
      * @param args the command line arguments

@@ -95,11 +95,11 @@ public class NguoiDanDao {
             throws Exception {
          // phai co 1 khoang trang sau "  , khong thoi se loi sql
         String sql = "select * from NguoiTiem where UserName_phoneNumber = ?";
-        String sql2 = "select CONVERT(VARCHAR(10), GETDATE(), 103) from NguoiTiem where userName_phoneNumber = ?";
+        
         try (
                  Connection con = connectDbManagerVaccine.OpenConnection(); 
                 PreparedStatement pstmt = con.prepareStatement(sql);
-                PreparedStatement pstmt2 = con.prepareStatement(sql2);
+                
             ){
             pstmt.setString(1, userName);
             
@@ -127,8 +127,46 @@ public class NguoiDanDao {
         }
     }
     
-    
-    
-    
-    
+    public int getCertificattion(String userName)
+            throws Exception {
+         // phai co 1 khoang trang sau "  , khong thoi se loi sql
+        String sql = "select * from NguoiTiem, LichTiem where UserName_phoneNumber = ?";
+        
+        try (
+                 Connection con = connectDbManagerVaccine.OpenConnection(); 
+                PreparedStatement pstmt = con.prepareStatement(sql);
+                
+            ){
+            pstmt.setString(1, userName);
+            
+            try(ResultSet rs = pstmt.executeQuery()){
+                int max = 0;
+                while (rs.next()) {
+                    if (rs.getInt("confirmation") == 0) {
+                        if (max > 0) {
+                            return max;
+                        } else {
+                            max = 0;
+                        }
+                    } else {
+                        if (rs.getInt("shot") == 1) {
+                            max = 1;
+                        } else {
+                            max = 2;
+                            break;
+                        }
+
+                    }
+                }
+                return max;
+            }
+
+        }
+         
+      }
+        
+        
 }
+    
+    
+    

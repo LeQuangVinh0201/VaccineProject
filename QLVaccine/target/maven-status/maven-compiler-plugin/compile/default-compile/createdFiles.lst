@@ -20,6 +20,7 @@ com\softech\FrameApp\ui\User\ChinhSuaThongTinCaNhan.class
 com\softech\ConnectDB\connectDbManagerVaccine.class
 com\softech\FrameApp\ui\Login_Register\RegisterUser$2.class
 com\softech\FrameApp\controller\ChuyenManHinhController$LabelEvent.class
+com\softech\FrameApp\ui\User\MainJFrameUser$8.class
 com\softech\Login\mailPassword$1.class
 com\softech\FrameApp\ui\Login_Register\RegisterUser$5.class
 com\softech\FrameApp\ui\User\ChungNhan1$2.class
