@@ -42,15 +42,7 @@ public class LichTiem extends javax.swing.JPanel {
     
     private void loadSchedule(){
         try {
-//            NguoiDaDao dao = new NguoiDanDao();
-//            List<NguoiDan> list = dao.;
-//            tblModel.setRowCount(0);
-//            for (BangDiem bd : list) {
-//                tblModel.addRow(new Object[]{
-//                    bd.getMaSinhVien(), bd.getTiengAnh(), bd.getTinHoc(), bd.getGDTC(),
-//                    (bd.getTiengAnh()+ bd.getTinHoc()+ bd.getGDTC())/3
-//                });
-//            }
+
             String sql = "select NguoiTiem.name, CONVERT(varchar,NguoiTiem.dateOfBirth,103) as dateOfBirth, NguoiTiem.userName_phoneNumber," +
                          " NguoiTiem.identification_ID, LichTiem.shot, Vaccine.nameOfVaccine, Vaccine.manufacturer, CONVERT(varchar,LichTiem.schedule,103) as schedule from NguoiTiem, LichTiem, Vaccine where NguoiTiem.userName_phoneNumber = LichTiem.phoneNumber_ID" +
                          " and LichTiem.vaccine_ID = Vaccine.vaccine_ID and NguoiTiem.userName_phoneNumber = ?";
@@ -66,14 +58,26 @@ public class LichTiem extends javax.swing.JPanel {
             
             try(ResultSet rs = pstmt.executeQuery()){
                 tblModel.setRowCount(0);
-                while(rs.next()){
+                
+                boolean result = rs.next();
+                if(!result){
+                    NguoiDanDao dao = new NguoiDanDao();
+                    NguoiDan nd = dao.findByUserName(userName);
+                    
+                    tblModel.addRow(new Object[]{
+                    nd.getName(), nd.getDateOfBirth(),userName,
+                    nd.getIdentification_ID(), " ", " "," ", " "});
+                }
+                while(result){
                    tblModel.addRow(new Object[]{
                    rs.getString("name"), rs.getString("dateOfBirth"),rs.getString("userName_phoneNumber"),
                    rs.getString("identification_ID"), rs.getInt("shot"), rs.getString("nameOfVaccine"),
                    rs.getString("manufacturer"), rs.getString("schedule")
-                   }); 
+                        }); 
+                   result = rs.next();
                 }
-                tblModel.fireTableDataChanged();
+                
+               
             
             }
             

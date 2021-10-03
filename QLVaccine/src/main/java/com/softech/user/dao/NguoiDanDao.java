@@ -19,37 +19,7 @@ import javax.sql.rowset.serial.SerialBlob;
  * @author PC
  */
 public class NguoiDanDao {
-//    public boolean insert(NguoiDan nd)
-//            throws Exception {
-//        String sql = "INSERT INTO dbo.NguoiTiem(name,gender,dateOfBirth,identification_ID,"
-//                + " bhyt_number, email, address, image )"
-//                + " values(?,?,?,?,?,?,?,?) WHERE userName_phoneNumber = ? ";
-//        try (
-//                 Connection con = connectDbManagerVaccine.OpenConnection();  PreparedStatement pstmt = con.prepareStatement(sql);) {
-//            pstmt.setString(1, nd.getName());
-//            pstmt.setInt(2, nd.getGender());
-//            pstmt.setString(3, nd.getDateOfBirth());
-//            pstmt.setString(4, nd.getIdentification_ID());
-//            pstmt.setString(5, nd.getBhyt_number());
-//            pstmt.setString(6, nd.getEmail());
-//            pstmt.setString(7, nd.getAddress());
-//            
-//            //lay username vua dang nhap
-//            Login lg = new Login();
-//            pstmt.setString(9,lg.username_verified);
-//            
-//            if (nd.getImage()!= null) {
-//                Blob hinh = new SerialBlob(nd.getImage());
-//                pstmt.setBlob(8, hinh);
-//            } else {
-//                Blob hinh = null;
-//                pstmt.setBlob(8, hinh);
-//            }
-//           
-//            return pstmt.executeUpdate() > 0; // neu lon hon 0 return true, nguoc lai return false
-//
-//        }
-//    }
+
     
     public boolean update(NguoiDan nd)
             throws Exception {
