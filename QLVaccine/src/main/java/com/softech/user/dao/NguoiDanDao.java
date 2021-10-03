@@ -94,7 +94,8 @@ public class NguoiDanDao {
     public NguoiDan findByUserName(String userName)
             throws Exception {
          // phai co 1 khoang trang sau "  , khong thoi se loi sql
-        String sql = "select * from NguoiTiem where UserName_phoneNumber = ?";
+        String sql = "select *, CONVERT(varchar,NguoiTiem.dateOfBirth,103) as newDateOfBirth"
+                + " from NguoiTiem where UserName_phoneNumber = ?";
         
         try (
                  Connection con = connectDbManagerVaccine.OpenConnection(); 
@@ -108,7 +109,7 @@ public class NguoiDanDao {
                    NguoiDan nd = new NguoiDan();
                    
                     nd.setName(rs.getString("name"));
-                    nd.setDateOfBirth(rs.getString("dateOfBirth"));
+                    nd.setDateOfBirth(rs.getString("newDateOfBirth"));
                     nd.setIdentification_ID(rs.getString("identification_ID"));
                     nd.setEmail(rs.getString("email"));
                     nd.setAddress(rs.getString("address"));

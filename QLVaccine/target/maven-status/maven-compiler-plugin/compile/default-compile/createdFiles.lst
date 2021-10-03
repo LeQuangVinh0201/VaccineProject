@@ -88,4 +88,5 @@ com\softech\FrameApp\ui\User\ChungNhan2.class
 com\softech\FrameApp\ui\User\MainJFrameUser$5.class
 com\softech\Login\mailPassword.class
 com\softech\FrameApp\ui\Login_Register\RegisterUser$7.class
+com\softech\FrameApp\ui\User\Home$1.class
 com\softech\Login\userDAO.class

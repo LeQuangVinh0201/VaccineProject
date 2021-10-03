@@ -51,8 +51,8 @@ public class LichTiem extends javax.swing.JPanel {
 //                    (bd.getTiengAnh()+ bd.getTinHoc()+ bd.getGDTC())/3
 //                });
 //            }
-            String sql = "select NguoiTiem.name, NguoiTiem.dateOfBirth, NguoiTiem.userName_phoneNumber," +
-                         " NguoiTiem.identification_ID, LichTiem.shot, Vaccine.nameOfVaccine, Vaccine.manufacturer, LichTiem.schedule from NguoiTiem, LichTiem, Vaccine where NguoiTiem.userName_phoneNumber = LichTiem.phoneNumber_ID" +
+            String sql = "select NguoiTiem.name, CONVERT(varchar,NguoiTiem.dateOfBirth,103) as dateOfBirth, NguoiTiem.userName_phoneNumber," +
+                         " NguoiTiem.identification_ID, LichTiem.shot, Vaccine.nameOfVaccine, Vaccine.manufacturer, CONVERT(varchar,LichTiem.schedule,103) as schedule from NguoiTiem, LichTiem, Vaccine where NguoiTiem.userName_phoneNumber = LichTiem.phoneNumber_ID" +
                          " and LichTiem.vaccine_ID = Vaccine.vaccine_ID and NguoiTiem.userName_phoneNumber = ?";
         
         try (

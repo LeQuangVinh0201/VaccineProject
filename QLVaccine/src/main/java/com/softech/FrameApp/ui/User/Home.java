@@ -27,23 +27,28 @@ public class Home extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jPanel6 = new javax.swing.JPanel();
+        jpnHome = new javax.swing.JPanel();
+        jpnPersonalInfo = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
-        jPanel5 = new javax.swing.JPanel();
+        jpnCertification = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
-        jPanel3 = new javax.swing.JPanel();
+        jpnSchedule = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
+        jpnHome.setBackground(new java.awt.Color(204, 255, 204));
 
-        jPanel6.setBackground(new java.awt.Color(0, 204, 204));
+        jpnPersonalInfo.setBackground(new java.awt.Color(0, 204, 204));
+        jpnPersonalInfo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jpnPersonalInfoMouseClicked(evt);
+            }
+        });
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/softech/appqlsv/icons/calendar (1).png"))); // NOI18N
 
@@ -53,11 +58,11 @@ public class Home extends javax.swing.JPanel {
 
         jSeparator4.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
+        javax.swing.GroupLayout jpnPersonalInfoLayout = new javax.swing.GroupLayout(jpnPersonalInfo);
+        jpnPersonalInfo.setLayout(jpnPersonalInfoLayout);
+        jpnPersonalInfoLayout.setHorizontalGroup(
+            jpnPersonalInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpnPersonalInfoLayout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addComponent(jLabel7)
                 .addGap(18, 18, 18)
@@ -66,22 +71,22 @@ public class Home extends javax.swing.JPanel {
                 .addComponent(jLabel8)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
+        jpnPersonalInfoLayout.setVerticalGroup(
+            jpnPersonalInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpnPersonalInfoLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jpnPersonalInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnPersonalInfoLayout.createSequentialGroup()
+                        .addGroup(jpnPersonalInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7))
                         .addGap(32, 32, 32))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnPersonalInfoLayout.createSequentialGroup()
                         .addComponent(jLabel8)
                         .addGap(83, 83, 83))))
         );
 
-        jPanel5.setBackground(new java.awt.Color(153, 153, 255));
+        jpnCertification.setBackground(new java.awt.Color(153, 153, 255));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/softech/appqlsv/icons/calendar (1).png"))); // NOI18N
 
@@ -91,11 +96,11 @@ public class Home extends javax.swing.JPanel {
 
         jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
+        javax.swing.GroupLayout jpnCertificationLayout = new javax.swing.GroupLayout(jpnCertification);
+        jpnCertification.setLayout(jpnCertificationLayout);
+        jpnCertificationLayout.setHorizontalGroup(
+            jpnCertificationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpnCertificationLayout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addComponent(jLabel5)
                 .addGap(18, 18, 18)
@@ -104,22 +109,22 @@ public class Home extends javax.swing.JPanel {
                 .addComponent(jLabel6)
                 .addContainerGap(54, Short.MAX_VALUE))
         );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
+        jpnCertificationLayout.setVerticalGroup(
+            jpnCertificationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpnCertificationLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jpnCertificationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnCertificationLayout.createSequentialGroup()
+                        .addGroup(jpnCertificationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5))
                         .addGap(32, 32, 32))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnCertificationLayout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addGap(83, 83, 83))))
         );
 
-        jPanel3.setBackground(new java.awt.Color(255, 102, 153));
+        jpnSchedule.setBackground(new java.awt.Color(255, 102, 153));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/softech/appqlsv/icons/calendar (1).png"))); // NOI18N
 
@@ -129,11 +134,11 @@ public class Home extends javax.swing.JPanel {
 
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout jpnScheduleLayout = new javax.swing.GroupLayout(jpnSchedule);
+        jpnSchedule.setLayout(jpnScheduleLayout);
+        jpnScheduleLayout.setHorizontalGroup(
+            jpnScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpnScheduleLayout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
@@ -142,41 +147,41 @@ public class Home extends javax.swing.JPanel {
                 .addComponent(jLabel4)
                 .addContainerGap(105, Short.MAX_VALUE))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        jpnScheduleLayout.setVerticalGroup(
+            jpnScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpnScheduleLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jpnScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addGap(32, 32, 32))
-            .addGroup(jPanel3Layout.createSequentialGroup()
+            .addGroup(jpnScheduleLayout.createSequentialGroup()
                 .addGap(59, 59, 59)
                 .addComponent(jLabel4)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout jpnHomeLayout = new javax.swing.GroupLayout(jpnHome);
+        jpnHome.setLayout(jpnHomeLayout);
+        jpnHomeLayout.setHorizontalGroup(
+            jpnHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpnHomeLayout.createSequentialGroup()
                 .addGap(56, 56, 56)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jpnPersonalInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(46, 46, 46)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jpnSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(51, 51, 51)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jpnCertification, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(62, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        jpnHomeLayout.setVerticalGroup(
+            jpnHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpnHomeLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jpnHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jpnCertification, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jpnPersonalInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jpnSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(746, Short.MAX_VALUE))
         );
 
@@ -184,14 +189,17 @@ public class Home extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jpnHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jpnHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jpnPersonalInfoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpnPersonalInfoMouseClicked
+
+    }//GEN-LAST:event_jpnPersonalInfoMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel3;
@@ -200,12 +208,12 @@ public class Home extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JPanel jpnCertification;
+    private javax.swing.JPanel jpnHome;
+    private javax.swing.JPanel jpnPersonalInfo;
+    private javax.swing.JPanel jpnSchedule;
     // End of variables declaration//GEN-END:variables
 }
