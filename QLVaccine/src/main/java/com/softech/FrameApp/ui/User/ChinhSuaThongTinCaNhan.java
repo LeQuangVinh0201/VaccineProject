@@ -116,7 +116,7 @@ public class ChinhSuaThongTinCaNhan extends javax.swing.JPanel {
         btnSave = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
         jPanel4 = new javax.swing.JPanel();
-        btnChangeAvatar = new javax.swing.JButton();
+        btnAddImage = new javax.swing.JButton();
         lblImage = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -238,8 +238,13 @@ public class ChinhSuaThongTinCaNhan extends javax.swing.JPanel {
             }
         });
 
-        btnChangeAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/softech/appqlsv/icons/Camera-icon.png"))); // NOI18N
-        btnChangeAvatar.setText("thêm hình");
+        btnAddImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/softech/appqlsv/icons/Camera-icon.png"))); // NOI18N
+        btnAddImage.setText("thêm hình");
+        btnAddImage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddImageActionPerformed(evt);
+            }
+        });
 
         lblImage.setText("hinh upload tại đây");
 
@@ -251,7 +256,7 @@ public class ChinhSuaThongTinCaNhan extends javax.swing.JPanel {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(25, 25, 25)
-                        .addComponent(btnChangeAvatar))
+                        .addComponent(btnAddImage))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -263,7 +268,7 @@ public class ChinhSuaThongTinCaNhan extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(lblImage, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnChangeAvatar))
+                .addComponent(btnAddImage))
         );
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
@@ -452,7 +457,7 @@ public class ChinhSuaThongTinCaNhan extends javax.swing.JPanel {
             return;
         }    
         if(MessageDialogHelper.showConfirmDialog(parentForm, 
-                "Bạn có muốn cập nhật sinh viên không?", "Hỏi") == JOptionPane.NO_OPTION){
+                "Bạn có muốn cập nhật thông tin không?", "Hỏi") == JOptionPane.NO_OPTION){
                return; // ket thuc phuong thuc nay 
         }
         
@@ -467,10 +472,11 @@ public class ChinhSuaThongTinCaNhan extends javax.swing.JPanel {
             nd.setImage(personalImage);
             nd.setAddress(txaAddress.getText());
             nd.setUserName_phoneNumber(txtPhone.getText());
+            
        
             NguoiDanDao dao = new NguoiDanDao();
             if(dao.update(nd)){
-                MessageDialogHelper.showMessageDialog(parentForm, "Thôn tin đã cập nhật thành công", "Thông Báo");
+                MessageDialogHelper.showMessageDialog(parentForm, "Thông tin đã cập nhật thành công", "Thông Báo");
             }else{
                 MessageDialogHelper.showConfirmDialog(parentForm, "Thông tin không được cập nhật do lỗi", "Cảnh Báo");
             }
@@ -491,6 +497,11 @@ public class ChinhSuaThongTinCaNhan extends javax.swing.JPanel {
             MessageDialogHelper.showErrorDialog(parentForm, sb.toString(), "Lỗi Đăng Nhập");
             return;
         } 
+        if(MessageDialogHelper.showConfirmDialog(parentForm, 
+                "Bạn có muốn lưu thông tin không?", "Hỏi") == JOptionPane.NO_OPTION){
+               return; // ket thuc phuong thuc nay 
+        }
+        
         try {
             NguoiDan nd = new NguoiDan();
             nd.setName(txtName.getText());
@@ -501,8 +512,10 @@ public class ChinhSuaThongTinCaNhan extends javax.swing.JPanel {
             nd.setEmail(txtEmail.getText());
             nd.setImage(personalImage);
             nd.setAddress(txaAddress.getText());
+            nd.setUserName_phoneNumber(txtPhone.getText());
+            
             NguoiDanDao dao = new NguoiDanDao();
-            if(dao.insert(nd)){
+            if(dao.update(nd)){
                 
                 MessageDialogHelper.showMessageDialog(parentForm, "Thông Tin Cá Nhân Đã Được Lưu", "Thông Báo");
                
@@ -516,10 +529,8 @@ public class ChinhSuaThongTinCaNhan extends javax.swing.JPanel {
                     e.getMessage(), "Lỗi");
         }
     }//GEN-LAST:event_btnSaveActionPerformed
-                                          
-                                  
 
-    private void btnAddImageActionPerformed(java.awt.event.ActionEvent evt) {                                            
+    private void btnAddImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddImageActionPerformed
         JFileChooser chooser = new JFileChooser();
           chooser.setFileFilter(new FileFilter(){
               @Override
@@ -554,13 +565,15 @@ public class ChinhSuaThongTinCaNhan extends javax.swing.JPanel {
             e.printStackTrace();
             MessageDialogHelper.showMessageDialog(parentForm, e.getMessage(), "Loi");
         }
-    }                                           
+    }//GEN-LAST:event_btnAddImageActionPerformed
+                                          
+                                                                           
 
 
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnChangeAvatar;
+    private javax.swing.JButton btnAddImage;
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnUpdate;
     private javax.swing.ButtonGroup buttonGroup1;

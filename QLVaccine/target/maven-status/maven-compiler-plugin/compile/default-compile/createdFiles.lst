@@ -38,6 +38,7 @@ com\softech\FrameApp\ui\User\MainJFrameUser$2.class
 com\softech\FrameApp\ui\Login_Register\RegisterUser$4.class
 com\softech\FrameApp\ui\User\ChinhSuaThongTinCaNhan$5.class
 com\softech\FrameApp\ui\Login_Register\GetPassword$2.class
+com\softech\FrameApp\ui\Login_Register\Login$7.class
 com\softech\FrameApp\ui\admin\MainJFrameAdmin$2.class
 com\softech\ShowMessageDialog\MessageDialogHelper.class
 com\softech\FrameApp\ui\Login_Register\RegisterUser$3.class
@@ -54,6 +55,7 @@ com\softech\FrameApp\ui\User\Home.class
 com\softech\user\dao\DataValidator.class
 com\softech\FrameApp\controller\ChuyenManHinhAdmin$LabelEvent.class
 com\softech\FrameApp\ui\User\MainJFrameUser$6.class
+com\softech\FrameApp\ui\Login_Register\Login$6.class
 com\softech\FrameApp\main\Main.class
 com\softech\FrameApp\ui\User\ChungNhan2$1.class
 com\softech\FrameApp\ui\User\ChinhSuaThongTinCaNhan$1.class
@@ -77,6 +79,7 @@ com\softech\FrameApp\ui\Login_Register\RegisterUser$1.class
 com\softech\FrameApp\ui\Login_Register\ChangePassword.class
 com\softech\Login\Email.class
 com\softech\FrameApp\ui\Login_Register\MainLogin$3.class
+com\softech\FrameApp\ui\User\ChinhSuaThongTinCaNhan$8.class
 com\softech\FrameApp\ui\Login_Register\Login.class
 com\softech\FrameApp\controller\ChuyenManHinhLogin$LabelEvent.class
 com\softech\FrameApp\ui\admin\ChinhSuaThongTinNguoiDung$2.class

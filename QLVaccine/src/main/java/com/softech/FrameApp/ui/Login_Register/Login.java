@@ -115,6 +115,16 @@ public class Login extends javax.swing.JPanel {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtUserName.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                txtUserNameMouseExited(evt);
+            }
+        });
+        txtUserName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUserNameActionPerformed(evt);
+            }
+        });
         txtUserName.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtUserNameKeyPressed(evt);
@@ -263,6 +273,14 @@ public class Login extends javax.swing.JPanel {
     private void txtUserNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserNameKeyPressed
         txtPassword.setBackground(Color.white);
     }//GEN-LAST:event_txtUserNameKeyPressed
+
+    private void txtUserNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUserNameActionPerformed
+
+    private void txtUserNameMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtUserNameMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUserNameMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
