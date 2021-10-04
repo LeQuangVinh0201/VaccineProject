@@ -21,7 +21,7 @@ public class userDAO {
     private ArrayList<userLogin> list = new ArrayList<>();
 
     public boolean insert(userLogin admin) throws SQLException {
-        String sql = "insert into NguoiTiem (userName_phoneNumber,password,fullname,email) values (?,?,?,?)";
+        String sql = "insert into NguoiTiem (userName_phoneNumber,password,name,email) values (?,?,?,?)";
 
         Connection con = connectDbManagerVaccine.OpenConnection();
         PreparedStatement pstmt = con.prepareStatement(sql);
